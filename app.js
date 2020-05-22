@@ -31,7 +31,7 @@ app.use((err, req, res, next) => {
   });
 });
 
-if (process.env.NODE_ENV === "production") {
+/*if (process.env.NODE_ENV === "production") {
   // Exprees will serve up production assets
   app.use(express.static("client/build"));
 
@@ -40,7 +40,7 @@ if (process.env.NODE_ENV === "production") {
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
-}
+}*/
 
 //postgres://rliylvrkildwxr:9d5269b5a5b6346cc0f69c9a5f992097dc9233d5a4dff7d600473d0d8d3a55f7@ec2-54-165-36-134.compute-1.amazonaws.com:5432/det7cf4ii66ifv
 app.listen(process.env.PORT || 3000, () => {
