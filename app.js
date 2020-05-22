@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
@@ -19,16 +20,15 @@ app.use((req, res, next) => {
 
 // development error handler
 // will print stacktrace
-if (app.get("env") === "development") {
-  app.use((err, req, res, next) => {
-    res.status(err.status || 500);
-    return res.json({
-      message: err.message,
-      error: err,
-    });
-  });
-}
 
-app.listen(8000, () => {
+app.use((err, req, res, next) => {
+  res.status(err.status || 500);
+  return res.json({
+    message: err.message,
+    error: err,
+  });
+});
+
+app.listen(process.env.PORT || 3000, () => {
   console.log("Getting started on port 8000!");
 });
