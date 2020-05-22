@@ -12,11 +12,13 @@ app.use("/graduates", gradRoutes);
 app.use("/", offerRoutes);
 
 // catch 404 and forward to error handler
-app.use((req, res, next) => {
-  var err = new Error("Not Found");
-  err.status = 404;
-  return next(err);
-});
+if (app.get("env") === "development") {
+  app.use((req, res, next) => {
+    var err = new Error("Not Found");
+    err.status = 404;
+    return next(err);
+  });
+}
 
 // development error handler
 // will print stacktrace
