@@ -28,7 +28,7 @@ app.use((err, req, res, next) => {
     error: err,
   });
 });
-
+//postgres://rliylvrkildwxr:9d5269b5a5b6346cc0f69c9a5f992097dc9233d5a4dff7d600473d0d8d3a55f7@ec2-54-165-36-134.compute-1.amazonaws.com:5432/det7cf4ii66ifv
 app.listen(process.env.PORT || 3000, () => {
   console.log("Getting started on port 8000!");
 });
