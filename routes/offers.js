@@ -37,10 +37,9 @@ ORDER BY
     var graduates = [];
 
     graduate.rows.forEach((row) => {
-      console.log(row.name);
-      var category = graduatesMap[row.name];
-      if (!category) {
-        category = {
+      var graduate = graduatesMap[row.name];
+      if (!graduate) {
+        graduate = {
           id: row.id,
           name: row.name,
           offers: [],
@@ -50,7 +49,7 @@ ORDER BY
         graduates.push(category);
       }
 
-      category.offers.push({
+      graduate.offers.push({
         name: row.title,
       });
     });
